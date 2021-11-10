@@ -1,0 +1,31 @@
+Marina Chavarria & Joan Ortiga
+
+Bug 1: El "Set FishingUi" del "Menu Manager" no te valor.
+Solució: (MenuManagerBP) Ajuntar el widget que creem al "Set FishingUI" per guardar la referència.
+
+-Bug 2: El node "Bind Picking Line" no te referència al target.
+Solució: (MenuManagerBP) Ajuntar el node de "player" al target.
+
+-Bug 3: "Player" de "menu manager" no te valor.
+Solució: (MenuManagerBP) Fer un "Set Player" de la variable "player" amb el "cast to third person character" com a referència.
+
+-Bug 4: La zona de pesca no s'amaga al entrar-hi.
+Solució: (FishingSpotBP) Al blueprint de la zona de pesca, falta unir l'execució del "Actor Begin Overlap" amb el "cast To third person character".
+
+-Bug 5: La zona de pesca no apareix al sortir-hi.
+Solució: (FishingSpotBP) Canviar el node de "DefaultPawn" per el node de "Third Person Character".
+
+-Bug 6: El "FishingWidget" no es mostra en pantalla.
+Solució: (FishingWidget-Editor)Canviar el canvas panel de "Fishing Widget" de visibilitat: hidden a visibilitat: Visible.
+
+-Bug 7: Quan acabes de pescar no et pots moure.
+Solució: (ThirdPersonCharacterBP) Al "thirdpersoncharacter bp" modificar el "Set CurrentState" de fishing a "wandering".
+
+Bug 8: L'animació de recollir fil de la canya es reprodueix quan no estàs damunt del peix enlloc de quan estas damunt del peix.
+Solució: (ThirdPersonCharacterBP) Juntar el "PickUpLine" event amb el "Set PickingLine" false i la "StopPickingLine" amb el "Set PickingLine" true.
+
+-Bug 9: No es reprodueix l'animació de llençar la canya.
+Solució: (ThirdPerson_AnimBP) Canviar el node slot.upperBody per slot.defaultSlot perque encaixi amb el montage de "Fishing_Cast_Retarget"
+
+-Bug 10: No es reprodueix de forma correcta l'animació de recollir la canya (no mou tot el cos).
+Solució: (ThirdPersonControllerBP) Al node de play animation de recollir la canya, has de canviar el montage per el "cast_retarget" enlloc del "pickupline_retarget".
